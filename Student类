@@ -1,0 +1,24 @@
+package src;
+
+public class Student {
+
+    private String name;
+
+    public Student(String name){
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object student) {
+        //在强制转换之前，我们需要进行一个判断，怕抛异常
+        if(this == student)
+            return true;
+        if(student == null)
+            return false;
+        if(this.getClass() != student.getClass())
+            return false;
+        //强制转换student为Student
+        Student another = new Student(student);
+        return this.name.toLowerCase().equals(another.name.toLowerCase());
+    }
+}
